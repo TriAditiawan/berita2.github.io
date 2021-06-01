@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Satu</title>
+    <style>
+      @font-face /*perintah untuk memanggil font eksternal*/ {
+        font-family: "Open sans"; /*memberikan nama bebas untuk font*/
+        src: url("./Open_Sans/OpenSans-Regular.ttf"); /*memanggil file font eksternalnya di folder nexa*/
+      }
+      :root {
+        background-color: #eaeaea;
+      }
+      * {
+        /* font-family: Arial, Helvetica, sans-serif; */
+        font-family: "Open Sans", sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        width: 100%;
+        /* margin: 50px auto; */
+        background-color: #369bfd;
+      }
+      header {
+        color: white;
+        padding: 10px;
+        text-align: center;
+        height: 80px;
+        line-height: 80px;
+      }
+      nav {
+        background-color: #007bff;
+        height: 60px;
+        line-height: 60px;
+      }
+      nav ul {
+        display: flex;
+        list-style: none;
+        justify-content: space-around;
+      }
+      nav > ul > li > a {
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+      }
+      nav > ul > li > a > img {
+        margin-top: 7px;
+      }
+      .content {
+        display: flex;
+      }
+      .content-kiri {
+        order: 1;
+        flex: 1.3;
+      }
+      .berita {
+        background-color: white;
+        margin: 10px;
+        /* height: 150px; */
+        line-height: 1.3;
+        border-radius: 3px;
+      }
+      .content-kiri > h2 {
+        text-align: center;
+        margin-top: 10px;
+      }
+      .content-kiri > .berita-garis {
+        background-color: #007bff;
+        width: 100px;
+        height: 10px;
+        border-radius: 5px;
+        margin: 10px auto;
+      }
+      .berita > .divberita > img {
+        margin: 5px;
+      }
+      .berita > .beritadiv > .tanggal {
+        font-size: 12px;
+        color: green;
+        text-align: right;
+        padding-top: 10px;
+        padding-right: 5px;
+      }
+      .berita > .beritadiv > .judul {
+        font-size: 14px;
+        margin-top: 10px;
+        margin-left: 5px;
+        margin-right: 1px;
+      }
+      .berita > .beritadiv > .judul > a {
+        text-decoration: none;
+        color: black;
+      }
+      .berita > .beritadiv > .judul > a:hover {
+        color: green;
+      }
+      .content-kanan {
+        line-height: 1.3em;
+        order: 2;
+        flex: 3;
+      }
+      .berita img {
+        width: 100px;
+      }
+      .lihat {
+        text-align: center;
+        padding: 10px;
+        color: green;
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .berita-besar {
+        background-color: #fff;
+        padding: 10px;
+        width: 80%;
+        margin: 10px auto;
+        border-radius: 10px;
+        overflow: hidden;
+        letter-spacing: 1px;
+      }
+      .iklan {
+        flex: 1;
+        order: 3;
+        /* background-color: green; */
+      }
+      .iklan > a > img {
+        margin: 50px 5px;
+        width: 200px;
+      }
+      .berita-besar > h4 > a {
+        text-decoration: none;
+        color: black;
+      }
+      .berita-besar > h4 {
+        margin-top: 10px;
+      }
+      .berita-besar .penulisb {
+        font-size: 12px;
+        color: green;
+        margin-top: 2px;
+      }
+      .berita-besar > h4 > a:hover {
+        color: green;
+      }
+      .berita-besar .paragrafb {
+        font-size: 18px;
+      }
+      .content-kanan h2 {
+        margin-left: 50px;
+        color: white;
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+      .iklan2 {
+        margin: 10px;
+        width: 95%;
+      }
+      .footer {
+        background-color: #1e2022 !important;
+        color: white;
+        display: flex;
+        padding: 60px;
+      }
+      .footer1 {
+        order: 1;
+        flex: 2;
+      }
+
+      .footer2 ul,
+      .footer1 ul,
+      .footer3 ul {
+        margin-top: 20px;
+        line-height: 40px;
+      }
+      .footer2 ul li:hover,
+      .footer1 ul li:hover,
+      .footer3 ul li:hover {
+        color: green;
+      }
+      .footer2 {
+        order: 2;
+        flex: 2;
+      }
+      .footer3 {
+        order: 3;
+        flex: 2;
+      }
+      .footer3 p {
+        font-size: 16px;
+        line-height: 40px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+      }
+      .footer3 a {
+        text-decoration: none;
+      }
+      .btn-success {
+        color: #fff;
+        background-color: #5cb85c;
+        border-color: #4cae4c;
+        padding: 10px;
+        border-radius: 5px;
+      }
+
+      footer {
+        background-color: rgba(0, 0, 0, 0.9);
+        text-align: center;
+        font-size: 18px;
+        padding: 20px;
+        color: white;
+      }
+      @media (min-width: 992px) {
+        .berita {
+          display: flex;
+          min-height: 200px;
+          border-radius: 5px;
+        }
+        .berita > .divberita > img {
+          margin: 40px 5px 5px 5px;
+        }
+        .berita > .beritadiv > p {
+          margin-top: 10px;
+        }
+        .berita > .beritadiv > .judul {
+          font-size: 16px;
+          margin-top: 10px;
+          margin-left: 5px;
+          margin-right: 1px;
+        }
+        .berita-besar {
+          padding: 10px;
+          margin: 10px auto;
+          border-radius: 8px;
+        }
+        .berita-besar > img {
+          width: 555px;
+          height: 320px;
+        }
+        .iklan > img {
+          margin: 10px;
+          width: 90%;
+        }
+        .berita-besar .paragrafb {
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 576px) {
+        .berita-besar {
+          padding: 10px;
+          margin: 10px auto;
+          border-radius: 3px;
+        }
+        .berita-besar > img {
+          width: 177px;
+          height: 110px;
+        }
+
+        .berita-besar .paragrafb {
+          font-size: 12px;
+        }
+      }
+      @media (min-width: 768px) {
+        .berita-besar {
+          padding: 10px;
+          margin: 10px auto;
+          border-radius: 5px;
+        }
+        .berita-besar > img {
+          width: 257px;
+          height: 190px;
+        }
+
+        .berita-besar .paragrafb {
+          font-size: 14px;
+        }
+      }
+      @media (min-width: 1200px) {
+        .berita-besar {
+          padding: 10px;
+          margin: 10px auto;
+          border-radius: 10px;
+        }
+        .berita-besar > img {
+          width: 327px;
+          height: 260px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>SMK INFORMATIKA CBI</h1>
+      </header>
+      <nav>
+        <ul>
+          <li>
+            <a href="">
+              <img src="./lg.png" alt="" width="50px" />
+            </a>
+          </li>
+          <li><a href="#">Beranda</a></li>
+          <li><a href="#">Berita </a></li>
+          <li><a href="#">Profil</a></li>
+          <li><a href="#">Ppdb</a></li>
+          <li><a href="#">Informasi siswa</a></li>
+          <li><a href="#">Masuk</a></li>
+        </ul>
+      </nav>
+      <div class="content">
+        <div class="content-kiri">
+          <h2>Berita Terbaru</h2>
+          <div class="berita-garis"></div>
+          <div class="berita">
+            <div class="divberita">
+              <img src="./1.jpg" alt="" />
+            </div>
+            <div class="beritadiv">
+              <p class="tanggal">01 juni 2021.</p>
+              <p class="judul"><a href="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum, mollitia.</a></p>
+            </div>
+          </div>
+          <div class="berita">
+            <div class="divberita">
+              <img src="./1.jpg" alt="" />
+            </div>
+            <div class="beritadiv">
+              <p class="tanggal">01 juni 2021.</p>
+              <p class="judul"><a href="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum, mollitia.</a></p>
+            </div>
+          </div>
+          <div class="berita">
+            <div class="divberita">
+              <img src="./1.jpg" alt="" />
+            </div>
+            <div class="beritadiv">
+              <p class="tanggal">01 juni 2021.</p>
+              <p class="judul"><a href="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum, mollitia.</a></p>
+            </div>
+          </div>
+          <div class="berita">
+            <div class="divberita">
+              <img src="./1.jpg" alt="" />
+            </div>
+            <div class="beritadiv">
+              <p class="tanggal">01 juni 2021.</p>
+              <p class="judul"><a href="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum, mollitia.</a></p>
+            </div>
+          </div>
+          <div class="berita">
+            <div class="divberita">
+              <img src="./1.jpg" alt="" />
+            </div>
+            <div class="beritadiv">
+              <p class="tanggal">01 juni 2021.</p>
+              <p class="judul"><a href="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum, mollitia.</a></p>
+            </div>
+          </div>
+
+          <a href="" class="lihat"><p>Lihat lebih banyak</p></a>
+          <br />
+          <br />
+          <a href="#">
+            <img src="./iklan/2.png" class="iklan2" alt="" />
+          </a>
+        </div>
+        <div class="content-kanan">
+          <br />
+          <h2>Berita Terpopuler</h2>
+          <div class="berita-besar">
+            <img src="./2.jpg" alt="" />
+            <p class="penulisb">01 Juni 2021.</p>
+            <h4 class="judulb"><a href="">Lorem ipsum dolor sit amet consectetur adipisicing.</a></h4>
+            <p class="paragraf">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, corporis! Quod saepe praesentium accusamus odio vitae, architecto
+              similique provident alias, magnam cumque quo quae optio.
+            </p>
+          </div>
+          <div class="berita-besar">
+            <img src="./2.jpg" alt="" />
+            <p class="penulisb">01 Juni 2021.</p>
+            <h4 class="judulb"><a href="">Lorem ipsum dolor sit amet consectetur adipisicing.</a></h4>
+            <p class="paragraf">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, corporis! Quod saepe praesentium accusamus odio vitae, architecto
+              similique provident alias, magnam cumque quo quae optio.
+            </p>
+          </div>
+          <div class="berita-besar">
+            <img src="./2.jpg" alt="" />
+            <p class="penulisb">01 Juni 2021.</p>
+            <h4 class="judulb"><a href="">Lorem ipsum dolor sit amet consectetur adipisicing.</a></h4>
+            <p class="paragraf">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, corporis! Quod saepe praesentium accusamus odio vitae, architecto
+              similique provident alias, magnam cumque quo quae optio.
+            </p>
+          </div>
+          <div class="berita-besar">
+            <img src="./2.jpg" alt="" />
+            <p class="penulisb">01 Juni 2021.</p>
+            <h4 class="judulb"><a href="">Lorem ipsum dolor sit amet consectetur adipisicing.</a></h4>
+            <p class="paragraf">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, corporis! Quod saepe praesentium accusamus odio vitae, architecto
+              similique provident alias, magnam cumque quo quae optio.
+            </p>
+          </div>
+          <a href="" class="lihat"><p>Lihat lebih banyak</p></a>
+        </div>
+        <div class="iklan">
+          <br />
+          <a href=""><img src="./iklan/1.gif" alt="" /></a>
+
+          <br />
+          <a href=""><img src="./iklan/3.png" alt="" /></a>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="footer1">
+          <h2>Kontak kami</h2>
+          <ul>
+            <li>(0266) 734-796</li>
+            <li>SMK Informatika CBI</li>
+            <li>
+              Jl. Koramil RT 02/02 Ds. Purwasari <br />
+              Kec. Cicurug Kab. Sukabumi Kode
+            </li>
+            <li>See Direction</li>
+          </ul>
+        </div>
+        <div class="footer2">
+          <h2>Pintasan</h2>
+          <ul>
+            <li>Tentang Kami</li>
+            <li>Kontak Kami</li>
+            <li>Seputar Sekolah</li>
+            <li>Pendaftaran</li>
+            <li>Acara</li>
+            <li>Berita</li>
+          </ul>
+        </div>
+        <div class="footer3">
+          <h2>Pendaftaran</h2>
+          <p>Bergabunglah bersama kami, menjadi bagian dari kami untuk menciptakan insan berkualitas, guna membangun Negara ini.</p>
+          <a href="" class="btn btn-success">Daftar sekarang</a>
+        </div>
+      </div>
+      <footer>© 2021 SMK Informatika CBI</footer>
+    </div>
+  </body>
+</html>
